@@ -140,8 +140,10 @@ class WBCModel(nn.Module):
                 if module.bias is not None:
                     nn.init.zeros_(module.bias)
             if isinstance(module, nn.MultiheadAttention):
-                for chunk in module.in_proj_weight.chunk(3, dim=0):
-                    nn.init.xavier_uniform_(chunk)
+                # Each of Q/K/V contains six independent 384 -> 64 head maps.
+                head_width = module.embed_dim // module.num_heads
+                for start in range(0, 3 * module.embed_dim, head_width):
+                    nn.init.xavier_uniform_(module.in_proj_weight[start : start + head_width])
                 nn.init.zeros_(module.in_proj_bias)
         nn.init.normal_(self.cls, std=0.02)
         nn.init.normal_(self.scale_embeddings, std=0.02)

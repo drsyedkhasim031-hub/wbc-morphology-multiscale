@@ -14,5 +14,9 @@
     "Two-epoch reduced-encoder end-to-end integration run"
   ],
   "original_full_cohort_training_completed": false,
-  "manuscript_scores_reproduced": false
+  "manuscript_scores_reproduced": false,
+  "github_initial_ci": "passed on Ubuntu / Python 3.11",
+  "frozen_checkpoint_retest": "Identical predicted classes; maximum aligned logit/probability difference 1.1e-6 across CPU batch ordering/thread configurations",
+  "notebook": "All code cells compile",
+  "site": "Published with HTTPS on GitHub Pages"
 }

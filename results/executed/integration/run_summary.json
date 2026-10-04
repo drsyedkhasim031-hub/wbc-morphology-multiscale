@@ -1,8 +1,8 @@
 {
-  "selected_epoch": 1,
-  "validation_macro_f1": 0.047619047619047616,
-  "temperature": 20.0,
-  "elapsed_seconds": 22.933897900002194,
-  "checkpoint_sha256": "fa57ae4a96d467cba9921f2bdba113ec49ecec9269e4309e9313a16b306a1c2a",
+  "selected_epoch": 2,
+  "validation_macro_f1": 0.09500805152979065,
+  "temperature": 5.8912812631095655,
+  "elapsed_seconds": 14.387915400002385,
+  "checkpoint_sha256": "a2dd993946cf0c9cc0b54df8a064682fea5c3397ef7dedf3f0a1d516c4eecc65",
   "manifest_sha256": "5d234c1487fc2882b61f062ac590b47ee2c2a086f5e82f1dfc518681d3dcf065"
 }
