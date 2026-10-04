@@ -9,6 +9,7 @@ data/
 runs/
 *.pth
 *.pt
+*.pt.*.tmp
 *.npz
 *.zip
 *.log

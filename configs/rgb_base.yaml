@@ -1,0 +1,27 @@
+# Extension recipe for standalone RGB baselines; not a manuscript reproduction.
+seed: 1729
+image_size: 224
+threads: 4
+roots:
+  raabin: data/raabin
+  pbc: data/pbc
+  aml: data/aml
+model:
+  architecture: rgb
+  backbone: resnet18
+  pretrained: true
+  weights_version: IMAGENET1K_V1
+  factors: [1.0]
+  freeze_backbone: false
+  dropout: 0.2
+training:
+  batch_size: 24
+  workers: 0
+  epochs: 80
+  warmup_epochs: 5
+  backbone_lr: 0.0001
+  head_lr: 0.0003
+  min_lr: 0.000001
+  weight_decay: 0.05
+  beta: 0.999
+  label_smoothing: 0.05

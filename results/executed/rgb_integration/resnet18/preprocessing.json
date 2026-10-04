@@ -1,0 +1,3 @@
+{
+  "normalization": "fixed ImageNet RGB mean/std; no fitted stain or descriptor statistics"
+}

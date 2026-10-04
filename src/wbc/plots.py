@@ -7,6 +7,7 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
 from .metrics import classification, calibration
 
 
@@ -79,11 +80,16 @@ def plot_predictions(frame, classes, out, title="Executed evaluation"):
 
 def plot_history(csv, output):
     data = pd.read_csv(csv)
+    Path(output).parent.mkdir(parents=True, exist_ok=True)
     fig, ax = plt.subplots(1, 2, figsize=(10, 4))
-    ax[0].plot(data.epoch, data.train_loss)
+    ax[0].plot(data.epoch, data.train_loss, "o-", color="#096c8a")
     ax[0].set(xlabel="Epoch", ylabel="Training objective")
-    ax[1].plot(data.epoch, data.validation_macro_f1)
-    ax[1].set(xlabel="Epoch", ylabel="Validation macro-F1")
+    ax[0].set_ylim(bottom=0)
+    ax[1].plot(data.epoch, data.validation_macro_f1, "o-", color="#096c8a")
+    ax[1].set(xlabel="Epoch", ylabel="Validation macro-F1", ylim=(0, 1))
+    for axis in ax:
+        axis.xaxis.set_major_locator(MaxNLocator(integer=True))
+        axis.grid(alpha=0.2)
     fig.tight_layout()
     fig.savefig(output, dpi=180)
     plt.close(fig)

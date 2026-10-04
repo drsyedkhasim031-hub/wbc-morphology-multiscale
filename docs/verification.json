@@ -1,7 +1,8 @@
 {
   "verification_date": "2026-10-04",
+  "version": "0.2.0",
   "local_tests": {
-    "passed": 25,
+    "passed": 46,
     "failed": 0,
     "command": "python -m pytest -q"
   },
@@ -11,12 +12,20 @@
   "official_checkpoint_sha256": "14f3164e3ea6ac32ab3f574f528ce817696c9176fad4221e0a77a905a7360595",
   "cpu_experiments": [
     "BloodMNIST six-WBC-class logistic-regression baseline",
-    "Two-epoch reduced-encoder end-to-end integration run"
+    "Two-epoch reduced-encoder end-to-end integration run",
+    "Two-epoch standalone compact CNN and ResNet-18 RGB integration runs",
+    "Prespecified equal-weight RGB probability ensemble"
   ],
   "original_full_cohort_training_completed": false,
   "manuscript_scores_reproduced": false,
   "github_initial_ci": "passed on Ubuntu / Python 3.11",
   "frozen_checkpoint_retest": "Identical predicted classes; maximum aligned logit/probability difference 1.1e-6 across CPU batch ordering/thread configurations",
   "notebook": "All code cells compile",
-  "site": "Published with HTTPS on GitHub Pages"
+  "site": "Published with HTTPS on GitHub Pages",
+  "rgb_catalog_forward_checks": 11,
+  "epoch_resume": "Exact CPU state equality against uninterrupted training for compact RGB and proposed debug models; optimizer and random states restored",
+  "checkpoint_recovery": "Simulated failed atomic write preserves previous readable checkpoint",
+  "exports": "Batched inference agrees with evaluation within 1e-6; numeric feature archive loads with allow_pickle=False",
+  "frozen_encoder": "ResNet BatchNorm buffers and encoder weights unchanged after head training",
+  "cli": "Help and model catalog executed successfully"
 }

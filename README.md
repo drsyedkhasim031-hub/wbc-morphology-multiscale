@@ -22,6 +22,8 @@ A runnable PyTorch reference implementation for **Integrating Stain Information 
 | Statistics | Paired group bootstrap for accuracy/macro-F1, cluster permutation, restricted exact McNemar, Holm adjustment |
 | Further analysis | Dice/IoU/boundary F1 and N:C agreement, fixed image corruptions, reliability/risk–coverage plots, end-to-end profiling, provisional mask overlays |
 | Comparators | ResNet-50, MobileNetV3-L, EfficientNet-B0, EfficientNetV2-S and Swin-T adapters; RGB baseline and architectural/objective ablations |
+| Standalone RGB models | Compact CNN; ResNet-18/34/50; DenseNet-121; MobileNetV3-L; EfficientNet-B0/V2-S; ConvNeXt-T; Swin-T; ViT-B/16 |
+| Extended training tools | Atomic epoch resume, frozen-encoder fine-tuning, gradient clipping, component loss logs, model/seed planner, probability ensembles, comparison CSVs and batch feature export |
 | Research assets | All nine supplied figures, 16 reported tables, provenance notes, dataset audit, notebook, executed CPU results, automated tests |
 
 ## Results actually executed here
@@ -108,6 +110,30 @@ python scripts/run_experiments.py --task pbc --variants full no_stain no_descrip
 python scripts/run_experiments.py --task aml --out runs/aml_fivefold --execute
 python scripts/run_experiments.py --task lodo_raabin --backbones convnext_tiny resnet50 swin_t --out runs/lodo_comparators
 ```
+
+## Additional models and resumable training (v0.2)
+
+The [models and training guide](docs/models_and_training.md) documents all 11 standalone RGB architectures, pretrained weights, head-only training, model comparisons, ensembles and exports. These are repository extensions, with a shared leakage-aware evaluation pipeline.
+
+The [RGB walkthrough notebook](notebooks/rgb_training.ipynb) provides an executable model inspection and training commands. **46 automated tests** cover the combined implementation, including exact CPU resume for RGB and proposed models.
+
+```bash
+wbc models
+wbc train --config configs/rgb_pbc.yaml --out runs/pbc_rgb
+# Resume after interruption with the original config and total epoch schedule:
+wbc train --config configs/rgb_pbc.yaml --out runs/pbc_rgb --resume runs/pbc_rgb/resume.pt
+
+# Plan first; add --execute to run all requested models and seeds.
+python scripts/train_baselines.py --config configs/pbc.yaml --backbones resnet18 densenet121 efficientnet_b0 swin_t --out runs/rgb_matrix
+wbc summarize --runs runs/model_a runs/model_b --out runs/comparison.csv
+wbc ensemble --runs runs/model_a runs/model_b --split test --weights 1 1 --out runs/ensemble
+wbc infer --checkpoint runs/pbc_rgb/calibrated.pt --images path/to/cells --features --out runs/batch_inference
+
+# Real-data software integration demonstration: two RGB models, two epochs each.
+python scripts/demo_rgb.py --data data/bloodmnist.npz --work runs/rgb_demo --results runs/rgb_demo_results
+```
+
+Ensemble members and weights must be fixed in advance or chosen on validation only. A paused training run does not evaluate test data. The RGB demonstration uses only 72/24/24 cells enlarged from 28 to 64 pixels; its [saved outputs](results/executed/rgb_integration/) are software checks, not benchmark evidence.
 
 ## Statistical comparisons and other analyses
 

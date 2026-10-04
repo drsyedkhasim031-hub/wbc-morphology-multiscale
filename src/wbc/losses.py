@@ -17,6 +17,14 @@ def objective(outputs, labels, maturation_targets, model, weights, cfg):
     smooth = cfg.get("label_smoothing", 0.05)
     ce = -(1 - smooth) * logp.gather(1, labels[:, None]).squeeze(1) - smooth * logp.mean(-1)
     classification = (ce * weights[labels]).mean()
+    if model.rgb_only:
+        zero = classification * 0
+        return classification, {
+            "classification": classification,
+            "scale": zero,
+            "prototype": zero,
+            "maturation": zero,
+        }
     tokens = F.normalize(outputs["tokens"], dim=-1, eps=1e-8)
     pair = torch.triu_indices(tokens.shape[1], tokens.shape[1], offset=1, device=tokens.device)
     scale = (
@@ -35,8 +43,6 @@ def objective(outputs, labels, maturation_targets, model, weights, cfg):
         if eligible.any() and model.maturation_head is not None
         else classification * 0
     )
-    if model.rgb_only:
-        scale = proto = ordinal = classification * 0
     total = (
         classification
         + cfg.get("scale_weight", 0.15) * scale

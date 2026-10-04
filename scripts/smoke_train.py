@@ -16,16 +16,11 @@ from wbc.utils import write_json
 from demo_baseline import load_data
 
 
-def main():
-    p = argparse.ArgumentParser()
-    p.add_argument("--data", required=True)
-    p.add_argument("--work", required=True)
-    p.add_argument("--results", required=True)
-    args = p.parse_args()
-    work, results = Path(args.work).resolve(), Path(args.results)
+def prepare_images(data_path, work):
+    """Materialize the fixed 72/24/24-cell integration subset for both demo scripts."""
+    work = Path(work).resolve()
     work.mkdir(parents=True, exist_ok=True)
-    results.mkdir(parents=True, exist_ok=True)
-    data, _ = load_data(args.data)
+    data, _ = load_data(data_path)
     rows = []
     rng = np.random.Generator(np.random.PCG64(1729))
     for split, count in [("train", 12), ("val", 4), ("test", 4)]:
@@ -50,6 +45,18 @@ def main():
                 )
     manifest = work / "manifest.csv"
     pd.DataFrame(rows).to_csv(manifest, index=False)
+    return manifest
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("--data", required=True)
+    p.add_argument("--work", required=True)
+    p.add_argument("--results", required=True)
+    args = p.parse_args()
+    work, results = Path(args.work).resolve(), Path(args.results)
+    results.mkdir(parents=True, exist_ok=True)
+    manifest = prepare_images(args.data, work)
     config = {
         "manifest": str(manifest),
         "roots": {"pbc": str(work)},

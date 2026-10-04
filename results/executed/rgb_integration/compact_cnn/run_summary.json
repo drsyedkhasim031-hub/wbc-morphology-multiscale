@@ -1,0 +1,8 @@
+{
+  "selected_epoch": 1,
+  "validation_macro_f1": 0.1858974358974359,
+  "temperature": 2.4564560522315806,
+  "elapsed_seconds": 10.218037400001776,
+  "checkpoint_sha256": "f3b37a1f9d03b834db9a8a4b5c2da93c53e4dcdcbc6e7ba45752457761246393",
+  "manifest_sha256": "5d234c1487fc2882b61f062ac590b47ee2c2a086f5e82f1dfc518681d3dcf065"
+}

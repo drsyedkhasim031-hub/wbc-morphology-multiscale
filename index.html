@@ -63,7 +63,8 @@
       </div>
       <figure><img src="results/executed/bloodmnist_cpu/figures/confusion_matrix.png" alt="Confusion matrix for the executed six-class BloodMNIST CPU baseline."><figcaption>Generated from saved case-level test predictions.</figcaption></figure>
     </div>
-    <p>A reduced-encoder integration run also exercises stain fitting, training, checkpoint selection, calibration and testing. Full ConvNeXt-T tensor flow and five comparator adapters are covered by automated tests.</p>
+    <p>A reduced-encoder integration run also exercises stain fitting, training, checkpoint selection, calibration and testing. Full ConvNeXt-T tensor flow, five comparator adapters, and all 11 standalone RGB classifiers are covered by automated tests.</p>
+    <p><strong>Version 0.2:</strong> standalone Compact CNN, ResNet, DenseNet, MobileNet, EfficientNet, ConvNeXt, Swin and ViT models; resumable training; frozen-encoder fine-tuning; probability ensembles; and batch prediction/feature export. See the <a href="https://github.com/drsyedkhasim031-hub/wbc-morphology-multiscale/blob/main/docs/models_and_training.md">model and training guide</a> and <a href="https://github.com/drsyedkhasim031-hub/wbc-morphology-multiscale/tree/main/results/executed/rgb_integration">two-model RGB integration outputs</a>. These short, small-subset runs check software behavior, not benchmark performance.</p>
   </section>
   <section id="reproduce">
     <h2>Start with the runnable demonstration</h2>

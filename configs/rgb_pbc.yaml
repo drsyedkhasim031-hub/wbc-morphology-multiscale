@@ -1,0 +1,3 @@
+extends: rgb_base.yaml
+manifest: data/splits/pbc.csv
+classes: [basophil, eosinophil, lymphocyte, monocyte, neutrophil, immature_granulocyte]

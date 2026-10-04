@@ -13,3 +13,7 @@
 **Outside scope:** patient diagnosis, whole-slide cell detection, treatment recommendations, autonomous clinical decisions, and claims of clinical safety or diagnostic validity.
 
 **Reproducibility:** model/preprocessing configuration, exact split manifest, source versions, seed, environment, checkpoint hash and predictions are required for each reported result. Independent anatomical evaluation and new-patient/laboratory evaluation are separate work.
+
+## Version 0.2 extensions
+
+Eleven standalone RGB baselines are available through the shared training and evaluation pipeline. The [model and training guide](models_and_training.md) specifies initialization, crop handling, feature exports, ensemble assumptions, and exact-resume limits. Added RGB demonstration outputs use a 120-cell BloodMNIST subset and two epochs; they are software integration checks, not evidence of clinical performance or reproduction of the manuscript. No full-cohort trained checkpoint is added by this release.

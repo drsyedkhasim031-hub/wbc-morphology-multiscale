@@ -1,0 +1,26 @@
+{
+  "sources": [
+    {
+      "run": "compact_cnn",
+      "predictions_sha256": "2f2c7ce4df67d1fb06c8f68ffc25b9e31a1a08e6b3f817ba9a8aa26dc3b138aa"
+    },
+    {
+      "run": "resnet18",
+      "predictions_sha256": "9492e8458969efeb9ec7fb8acdafb425068511dd39a9a271f1ea2f9c4bf75c4c"
+    }
+  ],
+  "classes": [
+    "basophil",
+    "eosinophil",
+    "lymphocyte",
+    "monocyte",
+    "neutrophil",
+    "immature_granulocyte"
+  ],
+  "split": "test",
+  "weights": [
+    0.5,
+    0.5
+  ],
+  "note": "Fixed probability average. Weights are not fitted by this command. Prespecify them or choose using validation only."
+}

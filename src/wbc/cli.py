@@ -20,6 +20,7 @@ def get_classes(text):
 def main():
     parser = argparse.ArgumentParser(description="Stain-associated morphology-aware WBC research pipeline")
     commands = parser.add_subparsers(dest="command", required=True)
+    commands.add_parser("models", help="List standalone RGB model architectures and explicit weight variants")
     p = commands.add_parser("sources", help="Print official dataset acquisition instructions")
     p = commands.add_parser(
         "download", help="Download a URL with optional checksum, or the verified CPU demo dataset"
@@ -55,6 +56,23 @@ def main():
     p.add_argument("--config", required=True)
     p.add_argument("--out", required=True)
     p.add_argument("--seed", type=int)
+    p.add_argument("--resume", help="Epoch-boundary resume.pt; keep the original config and schedule")
+    p.add_argument("--stop-after-epoch", type=int, help="Pause after this completed epoch without testing")
+    p = commands.add_parser("infer", help="Batch inference on images/directories; optional numeric features")
+    p.add_argument("--checkpoint", required=True)
+    p.add_argument("--images", nargs="+", required=True)
+    p.add_argument("--batch-size", type=int, default=16)
+    p.add_argument("--device", default="cpu")
+    p.add_argument("--features", action="store_true")
+    p.add_argument("--out", required=True)
+    p = commands.add_parser("summarize", help="Export a comparison CSV from completed run directories")
+    p.add_argument("--runs", nargs="+", required=True)
+    p.add_argument("--out", required=True)
+    p = commands.add_parser("ensemble", help="Prespecified average of aligned probabilities from >=2 runs")
+    p.add_argument("--runs", nargs="+", required=True)
+    p.add_argument("--split", choices=["validation", "test"], default="test")
+    p.add_argument("--weights", nargs="+", type=float)
+    p.add_argument("--out", required=True)
     p = commands.add_parser("evaluate", help="Run a frozen checkpoint on an explicit partition")
     p.add_argument("--checkpoint", required=True)
     p.add_argument("--manifest", required=True)
@@ -108,7 +126,11 @@ def main():
     p.add_argument("--device", default="cpu")
     p.add_argument("--out", required=True)
     args = parser.parse_args()
-    if args.command == "sources":
+    if args.command == "models":
+        from .models import MODEL_CATALOG
+
+        print(json.dumps(MODEL_CATALOG, indent=2))
+    elif args.command == "sources":
         from .downloads import SOURCES
 
         print(json.dumps(SOURCES, indent=2))
@@ -155,7 +177,19 @@ def main():
         config = read_config(args.config)
         if args.seed is not None:
             config["seed"] = args.seed
-        train(config, args.out)
+        train(config, args.out, resume=args.resume, stop_after_epoch=args.stop_after_epoch)
+    elif args.command == "infer":
+        from .inference import infer_images
+
+        infer_images(args.checkpoint, args.images, args.out, args.batch_size, args.device, args.features)
+    elif args.command == "summarize":
+        from .experiments import summarize_runs
+
+        summarize_runs(args.runs, args.out)
+    elif args.command == "ensemble":
+        from .ensemble import ensemble_runs
+
+        ensemble_runs(args.runs, args.split, args.out, args.weights)
     elif args.command == "evaluate":
         from .engine import evaluate_checkpoint
 
