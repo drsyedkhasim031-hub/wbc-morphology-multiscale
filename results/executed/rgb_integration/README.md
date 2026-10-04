@@ -12,6 +12,8 @@ The ensemble is included to exercise the implementation; its performance is lowe
 
 Each model directory contains histories, exact split manifests, case-level validation/test probabilities, class metrics, calibration, parameter counts, environment/configuration provenance, checkpoint hashes, confusion matrices, reliability plots, risk–coverage plots and training curves. Local machine paths in public provenance are replaced with `<demo-work>`; executed hyperparameters and hashes are unchanged. Trained checkpoint files and source images stay outside Git.
 
+Git preserves these CSV files byte for byte, including the executed run's line endings, so downloaded manifests and member predictions match their recorded SHA-256 hashes.
+
 Reproduce from the repository root:
 
 ```bash

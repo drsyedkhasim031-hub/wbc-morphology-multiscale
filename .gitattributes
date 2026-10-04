@@ -1,2 +1,4 @@
 * text=auto eol=lf
 *.png binary
+# Preserve the exact executed CSV bytes referenced by RGB provenance hashes.
+results/executed/rgb_integration/**/*.csv -text
