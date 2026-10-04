@@ -1,0 +1,4 @@
+extends: base.yaml
+manifest: data/splits/lodo_aml.csv
+target_dataset: aml
+classes: [basophil, eosinophil, lymphocyte, monocyte, neutrophil]

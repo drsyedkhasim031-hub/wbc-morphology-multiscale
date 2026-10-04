@@ -1,0 +1,26 @@
+Training setting,Supplied configuration
+Input,224×224
+Scales,0.80× / 1.00× / 1.20×
+Optimizer,AdamW
+Backbone LR,1×10⁻⁴
+New-head LR,3×10⁻⁴
+Weight decay,0.05
+Batch,24 cells = 72 crops
+Epochs,80
+Warm-up,5 epochs
+Scheduler,Cosine
+Minimum LR,1×10⁻⁶
+Label smoothing,0.05
+Effective-number β,0.999
+λ_scale,0.15
+λ_proto,0.05
+λ_ord,0.20
+Transformer dropout,0.10
+Classifier dropout,0.20
+Rotation,±12°
+Crop jitter,±5%
+Blur,σ≤0.5
+Seeds,5
+Calibration,Fit on held-out source validation predictions only; method not supplied
+Model selection,Source-validation metric and early-stopping rule not supplied
+Loss definitions,"Define classification, scale consistency, prototype and ordinal objectives explicitly"

@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Please cite the associated manuscript and original datasets. This is a new reference implementation, not authenticated original experiment code."
+title: "Stain-associated morphology-aware multiscale WBC classification"
+type: software
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/drsyedkhasim031-hub/wbc-morphology-multiscale"
+authors:
+  - name: "WBC Morphology Multiscale contributors"

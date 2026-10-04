@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wbc-morphology-multiscale"
+version = "0.1.0"
+description = "Reproducible implementation of stain-associated multiscale white blood cell classification"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.2", "torchvision>=0.17", "numpy>=1.24", "scipy>=1.10", "pandas>=2.0", "scikit-learn>=1.3", "Pillow>=10", "matplotlib>=3.7", "PyYAML>=6", "requests>=2.31"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+wbc = "wbc.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110

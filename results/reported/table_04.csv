@@ -1,0 +1,7 @@
+Evaluation,Label space,"Fit / source pool, n","Validation, n","Test / target, n",Grouping requirement
+Raabin native,5-class,"8,649","1,526","4,339",Preserve Test-A; verify smear-group separation
+PBC native,6-class,"9,235","1,979","1,979",Duplicate-group split; patient separation unverified
+AML native,15-class,"~13,223","~1,469","~3,673/fold",Five outer folds; patient linkage unverified
+LODO → Raabin,Common-5,"25,131 (source pool)",Source-only; counts not supplied,"14,514",No target data in fitting or tuning
+LODO → PBC,Common-5,"29,347 (source pool)",Source-only; counts not supplied,"10,298",No target data in fitting or tuning
+LODO → AML,Common-5,"24,812 (source pool)",Source-only; counts not supplied,"14,833",No target data in fitting or tuning

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Code, datasets, protocols and reproducible evaluation for stain-associated morphology-aware white blood cell classification.">
+  <title>White blood cell classification · Research code</title>
+  <style>
+    :root { color-scheme:light; --ink:#142b39; --muted:#536873; --accent:#096c8a; --line:#dce5e8; }
+    * { box-sizing:border-box; } body { margin:0; color:var(--ink); background:#f8faf9; font:16px/1.65 system-ui,sans-serif; }
+    a { color:var(--accent); text-underline-offset:3px; } a:hover { color:#004257; }
+    header,main,footer { max-width:1140px; margin:auto; padding:32px; }
+    header { display:flex; justify-content:space-between; gap:24px; align-items:center; border-bottom:1px solid var(--line); }
+    header strong { font-size:14px; letter-spacing:.09em; text-transform:uppercase; }
+    nav { display:flex; gap:22px; flex-wrap:wrap; } nav a { font-size:14px; }
+    .eyebrow { color:var(--accent); text-transform:uppercase; letter-spacing:.1em; font-size:12px; font-weight:700; margin-top:54px; }
+    h1 { font-size:clamp(32px,5.5vw,62px); line-height:1.09; letter-spacing:-.045em; max-width:870px; margin:20px 0; }
+    .lead { max-width:800px; font-size:20px; color:var(--muted); }
+    .buttons { display:flex; gap:12px; flex-wrap:wrap; margin:28px 0; }
+    .button { display:inline-block; padding:10px 20px; border:1px solid var(--accent); border-radius:4px; text-decoration:none; font-weight:600; }
+    .button.primary { background:var(--accent); color:white; }
+    .note { max-width:900px; color:var(--muted); font-size:15px; }
+    section { padding:48px 0; border-bottom:1px solid var(--line); }
+    h2 { font-size:28px; letter-spacing:-.02em; margin:0 0 18px; } h3 { font-size:18px; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+    .grid p { color:var(--muted); margin-top:6px; }
+    figure { margin:28px 0 0; } img { width:100%; height:auto; border:1px solid var(--line); background:white; }
+    figcaption { font-size:13px; color:var(--muted); margin-top:10px; }
+    .numbers { display:flex; gap:48px; flex-wrap:wrap; margin:28px 0; } .numbers strong { font-size:38px; display:block; line-height:1.3; }
+    .numbers span { font-size:14px; color:var(--muted); }
+    .results-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+    code { background:#eaf0f2; border-radius:3px; padding:2px 5px; font-size:14px; }
+    pre { padding:22px; background:#142b39; color:#e4eef2; overflow:auto; border-radius:5px; line-height:1.8; }
+    pre code { background:none; padding:0; color:inherit; }
+    footer { color:var(--muted); font-size:13px; }
+    @media(max-width:720px) { header,main,footer { padding:22px; } header { align-items:start; flex-direction:column; } .grid,.results-grid { grid-template-columns:1fr; gap:16px; } section { padding:34px 0; } .eyebrow { margin-top:32px; } }
+  </style>
+</head>
+<body>
+<header><strong>WBC · Research implementation</strong><nav aria-label="Primary"><a href="#model">Model</a><a href="#results">Executed results</a><a href="#reproduce">Reproduce</a><a href="https://github.com/drsyedkhasim031-hub/wbc-morphology-multiscale">GitHub ↗</a></nav></header>
+<main>
+  <p class="eyebrow">Stain · Morphology · Multiple scales</p>
+  <h1>White blood cell classification, with a traceable research pipeline.</h1>
+  <p class="lead">A PyTorch implementation connecting stain-associated representations, compartment features and scale attention—with the code to train, validate, test and examine the results.</p>
+  <div class="buttons"><a class="button primary" href="https://github.com/drsyedkhasim031-hub/wbc-morphology-multiscale">Explore the repository</a><a class="button" href="https://github.com/drsyedkhasim031-hub/wbc-morphology-multiscale/blob/main/notebooks/quickstart.ipynb">Open the notebook</a></div>
+  <p class="note"><strong>Research status.</strong> This is a new reference implementation of the supplied proposed method. The manuscript's reported scores have unverified experimental provenance. Full original-dataset reproduction remains outstanding; executed demonstrations below are identified separately.</p>
+  <section id="model">
+    <h2>One complete experimental workflow</h2>
+    <div class="grid">
+      <div><h3>Prepare and partition</h3><p>Native and common-five label spaces, dataset audits, decoded-image hashes, verified group links and fixed source-only partitions.</p></div>
+      <div><h3>Train the representation</h3><p>Shared ConvNeXt-T streams, compartment prototypes, explicit morphology, crop-scale attention and restricted maturation supervision.</p></div>
+      <div><h3>Test the evidence</h3><p>Case-level predictions, calibration, paired group statistics, mask agreement, deterministic corruptions and measured inference timing.</p></div>
+    </div>
+    <figure><img src="figures/paper/figure_02.png" alt="Supplied architecture illustration showing crop generation, stain streams, shared feature extraction, compartment pooling and scale attention."><figcaption>Architecture illustration extracted unchanged from the supplied manuscript. The repository documents the implemented operators and decisions.</figcaption></figure>
+  </section>
+  <section id="results">
+    <h2>Results actually executed</h2>
+    <div class="results-grid">
+      <div><h3>A separate CPU baseline</h3><p>Logistic regression on spatial and color features from six WBC classes in 28×28 BloodMNIST, derived from PBC. Validation selects regularization and temperature. Exact duplicates crossing the fixed partitions are excluded.</p>
+        <div class="numbers"><div><strong>89.51%</strong><span>Test accuracy</span></div><div><strong>88.22%</strong><span>Macro-F1</span></div><div><strong>2,640</strong><span>Held-out test cells</span></div></div>
+        <p class="note">These are not results of the proposed full model or the original-resolution manuscript experiment. Patient/slide independence remains unverified.</p>
+        <a href="https://github.com/drsyedkhasim031-hub/wbc-morphology-multiscale/tree/main/results/executed/bloodmnist_cpu">Inspect predictions, coefficients and provenance →</a>
+      </div>
+      <figure><img src="results/executed/bloodmnist_cpu/figures/confusion_matrix.png" alt="Confusion matrix for the executed six-class BloodMNIST CPU baseline."><figcaption>Generated from saved case-level test predictions.</figcaption></figure>
+    </div>
+    <p>A reduced-encoder integration run also exercises stain fitting, training, checkpoint selection, calibration and testing. Full ConvNeXt-T tensor flow and five comparator adapters are covered by automated tests.</p>
+  </section>
+  <section id="reproduce">
+    <h2>Start with the runnable demonstration</h2>
+    <pre><code>pip install -e ".[dev]"
+wbc download --demo --out data/bloodmnist.npz
+python scripts/demo_baseline.py --data data/bloodmnist.npz --out runs/demo
+pytest -q</code></pre>
+    <p>For original cohort experiments, follow the <a href="https://github.com/drsyedkhasim031-hub/wbc-morphology-multiscale/blob/main/docs/datasets.md">dataset guide</a>, verify group metadata, and use the native or leave-one-dataset-out configurations. Full training requires substantial compute.</p>
+    <div class="grid"><div><h3>Datasets</h3><p><a href="https://raabindata.com/">Raabin-WBC</a><br><a href="https://data.mendeley.com/datasets/snkd93bnjr/1">PBC · Mendeley Data</a><br><a href="https://www.cancerimagingarchive.net/collection/aml-cytomorphology_lmu/">AML · TCIA</a></p></div><div><h3>Methods and analysis</h3><p><a href="https://github.com/drsyedkhasim031-hub/wbc-morphology-multiscale/blob/main/docs/implementation.md">Implementation decisions</a><br><a href="https://github.com/drsyedkhasim031-hub/wbc-morphology-multiscale/blob/main/docs/evaluation.md">Evaluation and statistics</a><br><a href="https://github.com/drsyedkhasim031-hub/wbc-morphology-multiscale/blob/main/docs/model_card.md">Model card</a></p></div><div><h3>Manuscript assets</h3><p><a href="https://github.com/drsyedkhasim031-hub/wbc-morphology-multiscale/tree/main/figures/paper">Nine supplied figures</a><br><a href="https://github.com/drsyedkhasim031-hub/wbc-morphology-multiscale/tree/main/results/reported">Sixteen reported tables</a><br><a href="https://github.com/drsyedkhasim031-hub/wbc-morphology-multiscale/blob/main/DATA_LICENSES.md">Data rights and citations</a></p></div></div>
+  </section>
+</main>
+<footer><p>Associated manuscript: <em>Integrating Stain Information and Cell Morphology Across Multiple Scales for White Blood Cell Classification</em> — Md Nafis Azad Nobel, Mainuddin Adel Rafi, Mousumi Akter, Refat Hossain and Syed Khasim.</p><p>Research use. No diagnostic, patient-level or clinical performance is established by these artifacts.</p></footer>
+</body>
+</html>

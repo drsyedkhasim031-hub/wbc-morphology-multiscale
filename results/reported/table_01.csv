@@ -1,0 +1,10 @@
+Characteristic,Raabin-WBC,PBC (Acevedo et al.),AML-Cytomorphology_LMU
+Specimen,Peripheral blood smear,Peripheral blood smear,Peripheral blood smear
+Stain,Giemsa,May–Grünwald–Giemsa,Wright-type Romanowsky; confirm release metadata
+Acquisition,Olympus CX18 / Samsung Galaxy S5; additional Zeiss / LG G3 acquisition,"CellaVision DM96, Hospital Clinic of Barcelona","Precipoint M8, LMU Munich"
+Typical image size,Approximately 575 × 575 pixels,"360 × 363 pixels, JPG","400 × 400 pixels, TIFF"
+Public source size,"17,965 double-labelled cells; broader collection includes approximately 40,000 boxes","17,092 images in 8 groups","18,365 images in 15 classes"
+Selected analysis subset,"14,514: training + Test-A","13,193: six WBC groups","18,365: native 15-class task"
+Common-five subset,"14,514","10,298","14,833"
+Participant / slide linkage,Patient linkage not established in supplied materials; verify smear manifest,Public images anonymized; patient linkage unavailable,200 source participants; per-image patient linkage must be verified
+Analysis role,Native classification; external transfer; compartment validation,Native classification and external transfer,Fine-grained cytomorphology and external transfer

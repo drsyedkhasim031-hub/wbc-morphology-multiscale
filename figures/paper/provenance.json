@@ -1,0 +1,59 @@
+{
+  "source_sha256": "62a24f12bf5bb683f93ed78f18943d298cb1cc5f7c7380b3fe9511431c21dae0",
+  "figures": [
+    {
+      "figure": 1,
+      "file": "figure_01.png",
+      "sha256": "89bf0bb753803deee49642021fcff4713131dea79a94b1daa4b56f7760816399",
+      "status": "Supplied manuscript illustration; experimental provenance unverified"
+    },
+    {
+      "figure": 2,
+      "file": "figure_02.png",
+      "sha256": "1d401424fb5fe087411aba7a9a29008017cde4dc9942e0d494dea7ad3a5ba29a",
+      "status": "Supplied manuscript illustration; experimental provenance unverified"
+    },
+    {
+      "figure": 3,
+      "file": "figure_03.png",
+      "sha256": "ed5e8921262821d64805c5e9031c8ac731ea43a19928d09b083e0f1534438272",
+      "status": "Supplied manuscript illustration; experimental provenance unverified"
+    },
+    {
+      "figure": 4,
+      "file": "figure_04.png",
+      "sha256": "bb2ea97a88497982dd772007460cf9ed087ef5147fc8fc13fea735973ada6e3d",
+      "status": "Supplied manuscript illustration; experimental provenance unverified"
+    },
+    {
+      "figure": 5,
+      "file": "figure_05.png",
+      "sha256": "e01e36a38f0cc6cf43e0982d0362e0efba79a844c95ce78fb2eb43effb3a61fe",
+      "status": "Supplied manuscript illustration; experimental provenance unverified"
+    },
+    {
+      "figure": 6,
+      "file": "figure_06.png",
+      "sha256": "f21bf694735b68558da84bd12f6493c3103f338f5b95a1265db9eaafaf06af62",
+      "status": "Supplied manuscript illustration; experimental provenance unverified"
+    },
+    {
+      "figure": 7,
+      "file": "figure_07.png",
+      "sha256": "afafc175aac39b922d67083e1f6943329d87b38353b974cb7bd0633a8c6b60ec",
+      "status": "Supplied manuscript illustration; experimental provenance unverified"
+    },
+    {
+      "figure": 8,
+      "file": "figure_08.png",
+      "sha256": "ba5df7fbb311c18bc2a7819f045770f26824aa3512f0d3c8e743b4e6570a75d2",
+      "status": "Supplied manuscript illustration; experimental provenance unverified"
+    },
+    {
+      "figure": 9,
+      "file": "figure_09.png",
+      "sha256": "1b3f6a3a148e05f435f29df8111875614305179fc444c7b076dc653c3aa9855e",
+      "status": "Supplied manuscript illustration; experimental provenance unverified"
+    }
+  ]
+}

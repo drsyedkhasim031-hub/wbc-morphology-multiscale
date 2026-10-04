@@ -1,0 +1,6 @@
+Scales,Crop extents,Scale encoding,"Raabin acc., %","PBC acc., %","AML acc., %","External acc., %"
+1 scale,1.00×,No,99.29,99.48,97.84,97.31
+2 scales,Tight + canonical,Learned,99.48,99.64,98.12,97.74
+3 scales,Tight+canonical+expanded,No,99.55,99.67,98.31,97.88
+3 scales,0.80/1.00/1.20×,Learned,99.72,99.85,98.50,98.22
+4 scales,0.70/0.85/1.00/1.20×,Learned,99.70,99.83,98.46,98.19

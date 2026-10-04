@@ -1,0 +1,18 @@
+{
+  "verification_date": "2026-10-04",
+  "local_tests": {
+    "passed": 25,
+    "failed": 0,
+    "command": "python -m pytest -q"
+  },
+  "lint": "ruff check --select F passed; source formatted with ruff",
+  "full_convnext_pretrained_load": "Verified strict loading of official convnext_tiny_1k_224_ema.pth encoder keys",
+  "full_model_unique_parameters_5_classes": 32677798,
+  "official_checkpoint_sha256": "14f3164e3ea6ac32ab3f574f528ce817696c9176fad4221e0a77a905a7360595",
+  "cpu_experiments": [
+    "BloodMNIST six-WBC-class logistic-regression baseline",
+    "Two-epoch reduced-encoder end-to-end integration run"
+  ],
+  "original_full_cohort_training_completed": false,
+  "manuscript_scores_reproduced": false
+}

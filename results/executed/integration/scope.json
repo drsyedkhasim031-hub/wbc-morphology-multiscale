@@ -1,0 +1,11 @@
+{
+  "status": "EXECUTED INTEGRATION CHECK",
+  "backbone": "debug (16/32/64/128 channels, one block per stage)",
+  "input_size": 64,
+  "epochs": 2,
+  "train": 72,
+  "validation": 24,
+  "test": 24,
+  "source": "BloodMNIST 28x28 enlarged to 64",
+  "limitation": "Not a full ConvNeXt-T model experiment; accuracy has no manuscript reproduction interpretation."
+}

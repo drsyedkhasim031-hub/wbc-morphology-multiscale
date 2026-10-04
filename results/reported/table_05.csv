@@ -1,0 +1,17 @@
+Module,Input → output,Specification
+Crop generator,RGB → three 224 × 224 crops,"0.80×, 1.00×, 1.20× field of view; all from the same target cell"
+OD transform and stain basis,RGB → OD → two component streams,"Frozen basis fitted on training data only; a fixed 3 × 2 basis has 6 stored coefficients, not 0.002M trainable parameters"
+Stain component projection,Two component streams → backbone inputs,Channel construction must be confirmed; original B/E/residual single-input specification conflicts with two-stream diagrams
+Shared ConvNeXt-T stages,56² × 96; 28² × 192; 14² × 384; 7² × 768,"Shared across component streams and crops; one parameter set, repeated computation"
+Spatial feature fusion / projection,Component feature maps → F_s,Must preserve spatial dimensions for prototype matching and mask pooling; final map dimensions require code confirmation
+Compartment prototypes,Spatial embeddings → nucleus/cytoplasm/background scores,"Supplied setting: 12 prototypes per compartment, 64-d embeddings; 36 × 64 = 2,304 coefficients"
+Soft compartment masks,Scores → H × W × 3 assignments,Define prototype-to-compartment aggregation and softmax; supplied mask target 28 × 28
+Appearance pooling,F_s → appearance vector,Supplied intended width 512; the old GAP-1440 path needs reconciliation with spatial fusion
+Masked pooling and morphology,F_s + masks → regional features + descriptors,Both feature and mask inputs required; supplied intended morphology width 128; list all 8 descriptors
+Morphology-aware feature,512 + 128 → 640,Concatenate appearance and morphology; contingent on confirmed upstream widths
+Token projection,640 → 384 per crop,"One shared biased linear layer: 246,144 parameters; three independent layers: 738,432; select actual implementation"
+CLS and scale embeddings,Three scale tokens + one CLS → 4 × 384,"Four learned 384-vectors: 1,536 coefficients"
+Transformer encoder,4 × 384 → 4 × 384,"Two post-norm blocks; 6 heads; head dimension 64; FFN width 1,536"
+CLS readout / classifier,384 → 256 → K,"K = 5, 6 or 15 for separate native tasks; K = 5 for LODO"
+Auxiliary maturation head,CLS 384 → target outputs,Training only; eligible lineage labels; target and loss definition require reconciliation
+Parameter / FLOP totals,Not established,Original 33.37M sums arithmetically but is not a validated implementation count; profile all crop × component passes

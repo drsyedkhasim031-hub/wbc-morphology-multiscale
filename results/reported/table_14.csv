@@ -1,0 +1,4 @@
+Dataset,n,Raw ECE,Calibrated ECE,NLL,Brier,AURC,Coverage at ≤1% empirical risk
+Raabin,"4,339",0.021,0.005,0.028,0.006,0.0018,100%*
+PBC,"1,979",0.018,0.004,0.020,0.004,0.0012,100%*
+AML OOF,"18,365",0.046,0.012,0.083,0.019,0.0068,94.1%

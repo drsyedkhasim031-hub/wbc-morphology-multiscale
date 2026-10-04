@@ -1,0 +1,4 @@
+extends: base.yaml
+manifest: data/splits/lodo_raabin.csv
+target_dataset: raabin
+classes: [basophil, eosinophil, lymphocyte, monocyte, neutrophil]

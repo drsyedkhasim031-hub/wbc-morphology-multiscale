@@ -1,0 +1,62 @@
+{
+  "status": "EXECUTED CPU DEMONSTRATION, NOT A PAPER REPRODUCTION",
+  "dataset": "BloodMNIST 28x28, six selected WBC classes",
+  "source_url": "https://zenodo.org/records/10519652/files/bloodmnist.npz?download=1",
+  "source_sha256": "062023e186f537e26b3c21ea3b2614ddfc475e8a14825dfd20663bbb7e37bddc",
+  "source_md5": "7053d0359d879ad8a5505303e11de1dc",
+  "classes": [
+    "basophil",
+    "eosinophil",
+    "lymphocyte",
+    "monocyte",
+    "neutrophil",
+    "immature_granulocyte"
+  ],
+  "split_counts": {
+    "train": 9223,
+    "val": 1321,
+    "test": 2640
+  },
+  "cross_split_exact_duplicates_excluded": {
+    "val": 1,
+    "train": 8
+  },
+  "selection": [
+    {
+      "C": 0.01,
+      "validation_macro_f1": 0.8588401414998809,
+      "iterations": [
+        69
+      ]
+    },
+    {
+      "C": 0.1,
+      "validation_macro_f1": 0.8861109867730567,
+      "iterations": [
+        110
+      ]
+    },
+    {
+      "C": 1.0,
+      "validation_macro_f1": 0.8914124461289621,
+      "iterations": [
+        210
+      ]
+    }
+  ],
+  "temperature": 1.1205703832090563,
+  "environment": {
+    "python": "3.10.11",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "torch": "2.13.0+cpu",
+    "torchvision": "0.28.0+cpu",
+    "numpy": "1.26.4",
+    "scipy": "1.15.3",
+    "sklearn": "1.7.2",
+    "cuda": null,
+    "device": "CPU",
+    "threads": 8
+  },
+  "elapsed_seconds": 50.3662381000031,
+  "limits": "Official BloodMNIST split. Patient/slide independence and near-duplicate independence unverified. One deterministic classical-model run. Not evidence for proposed model or original-resolution PBC."
+}

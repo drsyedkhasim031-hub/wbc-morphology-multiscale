@@ -1,0 +1,12 @@
+Ablation,"Raabin accuracy, %","PBC accuracy, %","AML accuracy, %","Mean external accuracy, %","External macro-F1, %"
+Full model,99.72,99.85,98.50,98.22,95.91
+No OD/stain normalization,99.43,99.62,98.18,96.91,—
+No prototype/morphology branch,99.38,99.57,97.92,97.14,—
+Canonical crop only,99.29,99.48,97.84,97.31,—
+No scale encoding,99.55,99.67,98.31,97.88,—
+No maturation head,99.72,99.85,98.21,98.03,—
+RGB backbone only,99.11,99.34,97.51,96.42,—
+Objective: Classification only,99.35,99.56,97.88,—,93.82
+Objective: No scale consistency,99.58,99.70,98.34,—,95.22
+Objective: No prototype reg.,99.51,99.66,98.18,—,94.96
+Objective: λord=0.50,99.69,99.82,98.34,—,95.78

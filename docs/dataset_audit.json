@@ -1,0 +1,56 @@
+{
+  "checked_date": "2026-10-04",
+  "raabin": {
+    "source": "https://raabindata.com/",
+    "archive": "https://dl.raabindata.com/WBCData.rar",
+    "http_status": 200,
+    "archive_content_length_bytes": 55781603692,
+    "full_archive_downloaded": false,
+    "file_membership_verified": false
+  },
+  "pbc": {
+    "source": "https://data.mendeley.com/datasets/snkd93bnjr/1",
+    "original_archive_downloaded": false,
+    "original_file_membership_verified": false,
+    "verified_via": "Official BloodMNIST derived release, all 17092 labels",
+    "bloodmnist_class_counts": {
+      "7": 2348,
+      "3": 2895,
+      "6": 3329,
+      "2": 1551,
+      "1": 3117,
+      "5": 1420,
+      "0": 1218,
+      "4": 1214
+    },
+    "native_wbc_total": 13193,
+    "common_five_total": 10298,
+    "original_api_access": "403 challenge in this environment; official landing page accessible"
+  },
+  "aml": {
+    "source": "https://www.cancerimagingarchive.net/collection/aml-cytomorphology_lmu/",
+    "annotation_source": "https://www.cancerimagingarchive.net/wp-content/uploads/AML-CYTOMORPHOLOGY_LMU-annotations-dat.zip",
+    "annotation_sha256": "4db78414ad9c3a2e493a6516be92d093992b310060c9575364dc502ff4e4cc31",
+    "rows": 18365,
+    "original_class_counts": {
+      "BAS": 79,
+      "EBO": 78,
+      "EOS": 424,
+      "KSC": 15,
+      "LYA": 11,
+      "LYT": 3937,
+      "MMZ": 15,
+      "MOB": 26,
+      "MON": 1789,
+      "MYB": 42,
+      "MYO": 3268,
+      "NGB": 109,
+      "NGS": 8484,
+      "PMB": 18,
+      "PMO": 70
+    },
+    "counts_match_manuscript": true,
+    "full_images_downloaded": false,
+    "patient_linkage_present_in_annotation_file": false
+  }
+}

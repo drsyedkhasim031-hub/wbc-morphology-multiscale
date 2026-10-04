@@ -1,0 +1,7 @@
+Model,Params M,GFLOPs/cell,"Peak memory, GB","RTX latency, ms","Jetson latency, ms",RTX cells/s
+MobileNetV3 multi-scale,10.3,1.1,0.19,2.1,9.6,Derived: 476
+EfficientNetV2-S,26.3,8.8,0.38,4.4,19.8,Derived: 227
+ResNet-50,30.4,12.5,0.42,4.9,21.0,Derived: 204
+Swin-T,33.1,14.5,0.55,6.4,31.5,Derived: 156
+ConvNeXt-T backbone,28.6,13.4,0.45,5.0,23.1,Derived: 200
+Full proposed,33.37,13.8,0.48,5.6,24.8,Derived: 179

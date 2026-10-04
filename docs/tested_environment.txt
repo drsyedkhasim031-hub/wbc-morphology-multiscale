@@ -1,0 +1,11 @@
+torch==2.13.0
+torchvision==0.28.0
+numpy==1.26.4
+scipy==1.15.3
+pandas==2.3.3
+scikit-learn==1.7.2
+Pillow==11.0.0
+matplotlib==3.10.8
+PyYAML==6.0.2
+requests==2.32.5
+pytest==9.0.3

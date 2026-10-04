@@ -1,0 +1,31 @@
+# Proposed manuscript recipe. Paths are resolved from the working directory.
+seed: 1729
+image_size: 224
+threads: 4
+roots:
+  raabin: data/raabin
+  pbc: data/pbc
+  aml: data/aml
+model:
+  backbone: convnext_tiny
+  pretrained: true
+  factors: [0.8, 1.0, 1.2]
+  prototypes: 12
+  scale_encoding: true
+  stain: true
+  morphology: true
+  maturation: true
+training:
+  batch_size: 24
+  workers: 0
+  epochs: 80
+  warmup_epochs: 5
+  backbone_lr: 0.0001
+  head_lr: 0.0003
+  min_lr: 0.000001
+  weight_decay: 0.05
+  beta: 0.999
+  label_smoothing: 0.05
+  scale_weight: 0.15
+  prototype_weight: 0.05
+  maturation_weight: 0.20

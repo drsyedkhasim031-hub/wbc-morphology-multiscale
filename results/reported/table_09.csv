@@ -1,0 +1,19 @@
+Code,Class,Support,Precision %,Recall %,F1 %
+BAS,Basophil,79,91.36,93.67,92.50
+EBO,Erythroblast,78,100.00,96.15,98.04
+EOS,Eosinophil,424,98.12,98.35,98.23
+KSC,Smudge cell,15,81.25,86.67,83.87
+LYA,Atypical lymphocyte,11,81.82,81.82,81.82
+LYT,Typical lymphocyte,"3,937",98.60,98.22,98.41
+MMZ,Metamyelocyte,15,76.47,86.67,81.25
+MOB,Monoblast,26,69.70,88.46,77.97
+MON,Monocyte,"1,789",96.32,96.65,96.48
+MYB,Myelocyte,42,90.48,90.48,90.48
+MYO,Myeloblast,"3,268",97.86,97.98,97.92
+NGB,Band neutrophil,109,82.35,89.91,85.96
+NGS,Segmented neutrophil,"8,484",99.82,99.66,99.74
+PMB,Bilobed promyelocyte,18,100.00,88.89,94.12
+PMO,Promyelocyte,70,85.92,87.14,86.52
+Micro avg,—,"18,365",98.50,98.50,98.50
+Macro avg,—,"18,365",90.00,92.05,90.89
+Weighted avg,—,"18,365",98.53,98.50,98.51

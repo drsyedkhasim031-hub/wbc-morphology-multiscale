@@ -1,0 +1,7 @@
+Backbone in fixed proposed framework,"Raabin accuracy, %","PBC accuracy, %","AML accuracy, %","Mean external accuracy, %"
+MobileNetV3-L,99.08,99.36,97.42,96.84
+EfficientNet-B0,99.22,99.44,97.66,97.03
+EfficientNetV2-S,99.51,99.71,98.20,97.72
+ResNet-50,99.38,99.58,97.95,97.36
+Swin-T,99.60,99.76,98.31,97.91
+ConvNeXt-T,99.72,99.85,98.50,98.22

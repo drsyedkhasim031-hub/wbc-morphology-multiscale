@@ -1,0 +1,6 @@
+Target,Source domains,Target n,"Accuracy, %","Macro P, %","Macro R, %","Macro-F1, %",ECE
+Raabin,PBC + AML,"14,514",98.13,95.26,94.39,94.77,0.021
+PBC,Raabin + AML,"10,298",98.48,97.88,97.54,97.64,0.018
+AML common-5,Raabin + PBC,"14,833",98.06,96.02,94.88,95.31,0.024
+Unweighted domain mean,Strict LODO,—,98.22,96.39,95.60,95.91,0.021
+Total target observations,Three held-out domains,"39,645",—,—,—,—,—

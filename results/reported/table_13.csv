@@ -1,0 +1,7 @@
+Class,n,Nucleus Dice,Cytoplasm Dice,Whole-cell Dice,Boundary F1,N:C MAE,N:C bias
+Lymphocyte,242,0.943,0.884,0.952,0.901,0.054,−0.006
+Monocyte,242,0.931,0.876,0.946,0.889,0.066,+0.008
+Neutrophil,242,0.922,0.861,0.941,0.873,0.071,+0.011
+Eosinophil,201,0.928,0.869,0.944,0.881,0.067,+0.004
+Weighted mean,927,0.931,0.873,0.946,0.886,0.064,+0.004
+"Basophil, whole-cell GT",218,N/A,N/A,0.938,0.874,N/A,N/A

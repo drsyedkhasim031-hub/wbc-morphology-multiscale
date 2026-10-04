@@ -1,0 +1,8 @@
+Common-five label,Raabin mapping / n,PBC mapping / n,AML mapping / n,Combined n
+Basophil,Basophil / 301,"Basophil / 1,218",BAS / 79,"1,598"
+Eosinophil,"Eosinophil / 1,066","Eosinophil / 3,117",EOS / 424,"4,607"
+Lymphocyte,"Lymphocyte / 3,461","Lymphocyte / 1,214","LYT + LYA / 3,948","8,623"
+Monocyte,Monocyte / 795,"Monocyte / 1,420","MON / 1,789","4,004"
+Neutrophil,"Neutrophil / 8,891","Neutrophil / 3,329","NGB + NGS / 8,593","20,813"
+Total retained,"14,514","10,298","14,833","39,645"
+Excluded from common-five,None / 0,"Immature granulocytes / 2,895","EBO, KSC, MMZ, MOB, MYB, MYO, PMB, PMO / 3,532","6,427"

@@ -1,0 +1,24 @@
+{
+  "orientation": "model_a minus model_b",
+  "draws": 2000,
+  "seed": 1729,
+  "groups": 2640,
+  "grouping_scope": "Only as independent as the supplied verified grouping; image hashes do not establish patient independence.",
+  "equal_domain_weighting": false,
+  "cells": 2640,
+  "training_seeds": 1,
+  "accuracy": {
+    "difference": 0.6428030303030303,
+    "ci95": [
+      0.6231060606060606,
+      0.6617424242424242
+    ]
+  },
+  "macro_f1": {
+    "difference": 0.8150479393154845,
+    "ci95": [
+      0.8009472185119533,
+      0.8283502394939178
+    ]
+  }
+}

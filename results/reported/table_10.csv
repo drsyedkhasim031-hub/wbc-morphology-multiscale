@@ -1,0 +1,6 @@
+Pair,"Support, n","Baseline balanced accuracy, %","Proposed balanced accuracy, %","Gain, pp","Relative error reduction, %","AUROC, %"
+MYO vs MOB,"3,294",94.8,97.1,+2.3,44.2,99.1
+MYB vs MMZ,57,88.4,94.7,+6.3,54.3,97.0
+PMO vs MYB,112,90.2,95.5,+5.3,54.1,98.2
+PMO vs MYO,"3,338",94.4,97.0,+2.6,46.4,99.0
+LYA vs LYT,"3,948",86.7,92.4,+5.7,42.9,96.1

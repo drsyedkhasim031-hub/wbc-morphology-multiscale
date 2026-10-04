@@ -1,0 +1,4 @@
+extends: base.yaml
+manifest: data/splits/lodo_pbc.csv
+target_dataset: pbc
+classes: [basophil, eosinophil, lymphocyte, monocyte, neutrophil]
